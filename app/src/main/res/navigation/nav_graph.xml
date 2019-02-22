@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@+id/fragmentMain">
+
+    <fragment
+            android:id="@+id/fragmentMain"
+            android:name="com.android.navigation.FragmentMain"
+            android:label="fragment_fragment_main"
+            tools:layout="@layout/fragment_fragment_main">
+    </fragment>
+    <fragment
+            android:id="@+id/fragmentStepOne"
+            android:name="com.android.navigation.FragmentStepOne"
+            android:label="fragment_step__one"
+            tools:layout="@layout/fragment_step__one">
+        <argument
+                android:name="flowStepNumber"
+                app:argType="integer"
+                android:defaultValue="1"
+        />
+        <action
+                android:id="@+id/action_next"
+                app:destination="@id/fragmentStepTwo"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragmentStepTwo"
+            android:name="com.android.navigation.FragmentStepOne"
+            tools:layout="@layout/fragment_step_two">
+        <argument
+                android:name="flowStepNumber"
+                app:argType="integer"
+                android:defaultValue="2"
+        />
+        <action
+                android:id="@+id/action_next"
+                app:popUpTo="@id/fragmentMain"/>
+
+    </fragment>
+    <fragment
+            android:id="@+id/fragment_DeepLink"
+            android:name="com.android.navigation.FragmentDeepLink"
+            android:label="fragment__deep_link"
+            tools:layout="@layout/fragment__deep_link"/>
+</navigation>
